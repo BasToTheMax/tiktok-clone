@@ -15,7 +15,7 @@
     <button onclick="login()">Login</button>
 
     <h2>Video's</h2>
-    <div id="vid"></div>
+    <pre id="vid"></pre>
 
   </body>
 
@@ -32,7 +32,7 @@
       var vid = await pb.collection('videos').getFullList({
         expand: "tags"
       });
-      document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
+      document.getElementById('vid').innerHTML = JSON.stringify(vid, null, 4);
     }
   </script>
 </html>
