@@ -15,12 +15,22 @@
     <button onclick="login()">Login</button>
 
     <h2>Video's</h2>
+    <div id="vid"></div>
 
   </body>
 
+  <script src="/pb.js"></script>
   <script>
-    function login() {
-      
+    const pb = new PocketBase("http://n1.meegie.net:3004");
+    async function login() {
+      var vid = await pb.collection('users').authWithPassword('test@valtres.net', 'test123!');
+      document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
+
+      load();
+    }
+    async function load() {
+      var vid = await pb.collection('videos').getFullList({});
+      document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
     }
   </script>
 </html>
