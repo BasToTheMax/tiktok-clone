@@ -24,7 +24,7 @@
     const pb = new PocketBase("http://n1.meegie.net:3004");
     async function login() {
       var vid = await pb.collection('users').authWithPassword('test@valtres.net', 'test123!');
-      document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
+      //document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
 
       load();
     }
