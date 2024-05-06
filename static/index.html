@@ -30,7 +30,7 @@
     }
     async function load() {
       var vid = await pb.collection('videos').getFullList({
-        expand: "user,tags"
+        expand: "tags"
       });
       document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
     }
