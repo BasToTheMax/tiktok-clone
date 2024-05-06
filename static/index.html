@@ -29,7 +29,9 @@
       load();
     }
     async function load() {
-      var vid = await pb.collection('videos').getFullList({});
+      var vid = await pb.collection('videos').getFullList({
+        expand: "user,tags"
+      });
       document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
     }
   </script>
