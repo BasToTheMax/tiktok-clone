@@ -14,8 +14,9 @@
     <h1>Tiktok clone</h1>
     <button onclick="login()">Login</button>
 
-    <h2>Video's</h2>
+    <h2>Popular video's</h2>
     <pre id="vid"></pre>
+    <div id="popular"></div>
 
   </body>
 
@@ -30,10 +31,16 @@
     }
     setInterval(load, 1000);
     async function load() {
-      var vid = await pb.collection('videos').getFullList({
-        expand: "tags,user"
+      var vid = await pb.collection('videos').getList(1, 10, {
+        expand: "user",
+        order: "views"
       });
       document.getElementById('vid').innerHTML = JSON.stringify(vid, null, 4);
+
+      document.getElementById('popular').innerHTML = '';
+      vid.forEach((video) => {
+        document.getElementById('popular').innerHTML += `<b>${video.title}</b> ${video.views} views by ${video.expand.user.name}`;
+      });
     }
   </script>
 </html>
