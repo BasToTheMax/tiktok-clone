@@ -27,9 +27,9 @@
       var vid = await pb.collection('users').authWithPassword('test@valtres.net', 'test123!');
       //document.getElementById('vid').innerHTML += JSON.stringify(vid, null, 4);
 
-      // load();
+      load();
     }
-    // setInterval(load, 1000);
+    setTimeout(load, 1000);
     try {
       load();
     } catch() {
