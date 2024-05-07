@@ -38,7 +38,7 @@
       document.getElementById('vid').innerHTML = JSON.stringify(vid, null, 4);
 
       document.getElementById('popular').innerHTML = '';
-      vid.forEach((video) => {
+      vid.items.forEach((video) => {
         document.getElementById('popular').innerHTML += `<b>${video.title}</b> ${video.views} views by ${video.expand.user.name}`;
       });
     }
