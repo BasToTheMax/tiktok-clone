@@ -39,7 +39,7 @@
 
       document.getElementById('popular').innerHTML = '';
       vid.items.forEach((video) => {
-        document.getElementById('popular').innerHTML += `<b>${video.title}</b> ${video.views} views by ${video.expand.user.name}`;
+        document.getElementById('popular').innerHTML += `<b>${video.title}</b> ${video.views} views by ${video.expand.user.name}    <a href="/video.html?id=${video.id}">[VIEW]</a><br />`;
       });
     }
   </script>
