@@ -33,7 +33,8 @@
     async function load() {
       var vid = await pb.collection('videos').getList(1, 10, {
         expand: "user",
-        order: "+ratio"
+        sort: "-ratio",
+        filter: "status = 'done'"
       });
       document.getElementById('vid').innerHTML = JSON.stringify(vid, null, 4);
 
