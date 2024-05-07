@@ -32,8 +32,9 @@
     setTimeout(load, 1000);
     try {
       load();
-    } catch() {
+    } catch(e) {
       login();
+      console.log(e);
     }
     async function load() {
       var vid = await pb.collection('videos').getList(1, 10, {
